@@ -5,6 +5,7 @@ import 'rc-slider/assets/index.css';
 import Tooltip from 'rc-tooltip';
 import styled from "styled-components"
 import {Field} from 'redux-form'
+import {compose} from "recompose"
 
 
 import Hello from './Hello';
@@ -47,15 +48,9 @@ const Values = styled.div`
   justify-content: space-between;
 `
 
-
-const App = () => (
-  <div style={styles}>
-    <Hello name="CodeSandbox" />
-    <h2>Start sliding to see magic happen! {'\u2728'}</h2>
-    <Field />
-    <SliderRoot>
+const renderSlider = () => (
+  <SliderRoot>
       <Slider 
-      name="rangeSlider"
       handle={handle}
       min={0}
       max={20}
@@ -78,6 +73,13 @@ const App = () => (
        <p>12</p>
        </Values>
     </SliderRoot>
+)
+
+const App = () => (
+  <div style={styles}>
+    <Hello name="CodeSandbox" />
+    <h2>Start sliding to see magic happen! {'\u2728'}</h2>
+    <Field name="randeSlider" component={renderSlider}/>
   </div>
 );
 
