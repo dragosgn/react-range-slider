@@ -5,10 +5,10 @@ import 'rc-slider/assets/index.css';
 import Tooltip from 'rc-tooltip';
 import styled from "styled-components"
 import {Field} from 'redux-form'
-import {compose} from "recompose"
 import {Provider} from "react-redux"
 import {reduxForm} from 'redux-form'
-import {createStore, applyMiddleware, combineReducers} from 'redux'
+import { createStore, combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 
 
 import Hello from './Hello';
@@ -53,6 +53,7 @@ const Values = styled.div`
 
 const renderSlider = (props) => (
   <SliderRoot>
+  {props.input.value}
       <Slider 
       handle={handle}
       min={0}
@@ -78,17 +79,27 @@ const renderSlider = (props) => (
     </SliderRoot>
 )
 
-let RangeForm = (props) => (
-  <form onSumbit={props.hadleSubmit(props.onSubmit)}>
-      <Field name="randeSlider" component={renderSlider}/>
-    </form>
-)
+let RangeForm = props => {
+  const { handleSubmit } = props
+  return <form onSumbit={handleSubmit} >
+      <Field name="randeSlider" component={renderSlider} type="text"/>
+    </form >
+}
 
-RangeForm = compose(
-  reduxForm({
-    form: "slider"
-  })
-)(RangeForm)
+RangeForm = reduxForm({
+  // a unique name for the form
+  form: 'contact'
+})(RangeForm)
+
+const rootReducer = combineReducers({
+  // ...your other reducers here
+  // you have to pass formReducer under 'form' key,
+  // for custom keys look up the docs for 'getFormState'
+  form: formReducer
+})
+
+const store = createStore(rootReducer)
+
 
 const App = () => (
   <div style={styles}>
@@ -98,5 +109,5 @@ const App = () => (
   </div>
 );
 
-render(<Provider>
-<App /></Provider>, document.getElementById('root'));
+render(<Provider store={store}>
+  <App /></Provider>, document.getElementById('root'));
