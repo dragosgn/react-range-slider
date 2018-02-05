@@ -46,15 +46,24 @@ const handle = (props) => {
 };
 
 
-const Values = styled.div`
+const RangeValues = styled.div`
   display: flex;
   justify-content: space-between;
 `
 
+
+const CurrentValue = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
 const renderSlider = (props) => (
   <SliderRoot>
-  <p>Current Value from Redux: </p>
-  {props.input.value}
+  <CurrentValue>
+      <p>Current Value from Redux: </p>
+      {props.input.value}
+      </CurrentValue>
       <Slider 
       handle={handle}
       min={0}
@@ -74,10 +83,10 @@ const renderSlider = (props) => (
         }}
         railStyle={{ backgroundColor: '#d3d3d3', height: 12, borderRadius: "2px" }}
        />
-       <Values>
+       <RangeValues>
        <p>0</p>
        <p>20</p>
-       </Values>
+       </RangeValues>
     </SliderRoot>
 )
 
@@ -105,7 +114,7 @@ const store = createStore(rootReducer)
 
 const App = () => (
   <div style={styles}>
-    <Hello name="CodeSandbox" />
+    <h1>A range component connected to redux forms!</h1>
     <h2>Start sliding to see magic happen! {'\u2728'}</h2>
     <RangeForm/>
   </div>
