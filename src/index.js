@@ -4,6 +4,8 @@ import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css';
 import Tooltip from 'rc-tooltip';
 import styled from "styled-components"
+import {Field} from 'redux-form'
+
 
 import Hello from './Hello';
 
@@ -13,7 +15,11 @@ const styles = {
 };
 
 const SliderRoot = styled.div`
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  .rc-slider-dot {
+    display: none;
+  }
 `
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -34,6 +40,13 @@ const handle = (props) => {
     </Tooltip>
   );
 };
+
+
+const Values = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 
 const App = () => (
   <div style={styles}>
@@ -58,6 +71,10 @@ const App = () => (
         }}
         railStyle={{ backgroundColor: '#d3d3d3', height: 12, borderRadius: "2px" }}
        />
+       <Values>
+       <p>0</p>
+       <p>12</p>
+       </Values>
     </SliderRoot>
   </div>
 );
