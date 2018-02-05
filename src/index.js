@@ -8,6 +8,7 @@ import {Field} from 'redux-form'
 import {compose} from "recompose"
 import {Provider} from "react-redux"
 import {reduxForm} from 'redux-form'
+import {createStore, applyMiddleware, combineReducers} from 'redux'
 
 
 import Hello from './Hello';
@@ -93,6 +94,7 @@ const App = () => (
   <div style={styles}>
     <Hello name="CodeSandbox" />
     <h2>Start sliding to see magic happen! {'\u2728'}</h2>
+    <RangeForm />
   </div>
 );
 
