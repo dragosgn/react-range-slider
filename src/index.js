@@ -53,11 +53,13 @@ const Values = styled.div`
 
 const renderSlider = (props) => (
   <SliderRoot>
+  <p>Current Value from Redux: </p>
   {props.input.value}
       <Slider 
       handle={handle}
       min={0}
       max={20}
+      value={props.input.value} onChange={props.input.onChange}
       defaultValue={3}
       trackStyle={{ backgroundColor: '#9dc217', height: 12, borderRadius: "2px" }}
         handleStyle={{
@@ -74,7 +76,7 @@ const renderSlider = (props) => (
        />
        <Values>
        <p>0</p>
-       <p>12</p>
+       <p>20</p>
        </Values>
     </SliderRoot>
 )
@@ -82,7 +84,7 @@ const renderSlider = (props) => (
 let RangeForm = props => {
   const { handleSubmit } = props
   return <form onSumbit={handleSubmit} >
-      <Field name="randeSlider" component={renderSlider} type="text"/>
+    <Field name="water" component={renderSlider} type="text"/>
     </form >
 }
 
@@ -105,7 +107,7 @@ const App = () => (
   <div style={styles}>
     <Hello name="CodeSandbox" />
     <h2>Start sliding to see magic happen! {'\u2728'}</h2>
-    <RangeForm />
+    <RangeForm/>
   </div>
 );
 
