@@ -45,16 +45,18 @@ const App = () => (
       min={0}
       max={20}
       defaultValue={3}
-      trackStyle={{ backgroundColor: 'green', height: 10, borderRadius: "2px" }}
+      trackStyle={{ backgroundColor: '#9dc217', height: 12, borderRadius: "2px" }}
         handleStyle={{
-          borderColor: 'blue',
-          height: 28,
-          width: 28,
+          borderColor: '#242f40',
+          borderWidth: "1px",
+          height: 24,
+          width: 24,
           marginLeft: -14,
-          marginTop: -9,
+          marginTop: -7,
           backgroundColor: 'white',
+
         }}
-        railStyle={{ backgroundColor: 'grey', height: 10, borderRadius: "2px" }}
+        railStyle={{ backgroundColor: '#d3d3d3', height: 12, borderRadius: "2px" }}
        />
     </SliderRoot>
   </div>
