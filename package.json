@@ -1,0 +1,20 @@
+{
+  "name": "react-range-slider",
+  "description": "",
+  "version": "0.0.0",
+  "dependencies": {
+    "react-dom": "16.0.0",
+    "react": "16.0.0",
+    "rc-tooltip": "3.7.0",
+    "rc-slider": "8.6.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
