@@ -42,7 +42,19 @@ const App = () => (
     <SliderRoot>
       <Slider 
       handle={handle}
-        min={0} max={20} defaultValue={3} 
+      min={0}
+      max={20}
+      defaultValue={3}
+      trackStyle={{ backgroundColor: 'blue', height: 10, borderRadius: "2px" }}
+        handleStyle={{
+          borderColor: 'blue',
+          height: 28,
+          width: 28,
+          marginLeft: -14,
+          marginTop: -9,
+          backgroundColor: 'black',
+        }}
+        railStyle={{ backgroundColor: 'red', height: 10 }}
        />
     </SliderRoot>
   </div>
