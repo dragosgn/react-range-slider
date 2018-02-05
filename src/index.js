@@ -52,8 +52,10 @@ const App = () => (
   <div style={styles}>
     <Hello name="CodeSandbox" />
     <h2>Start sliding to see magic happen! {'\u2728'}</h2>
+    <Field />
     <SliderRoot>
       <Slider 
+      name="rangeSlider"
       handle={handle}
       min={0}
       max={20}
