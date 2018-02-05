@@ -48,7 +48,7 @@ const Values = styled.div`
   justify-content: space-between;
 `
 
-const renderSlider = () => (
+const renderSlider = (props) => (
   <SliderRoot>
       <Slider 
       handle={handle}
@@ -75,11 +75,17 @@ const renderSlider = () => (
     </SliderRoot>
 )
 
+let RangeForm = (props) => (
+  <form onSumbit={props.hadleSubmit(props.onSubmit)}>
+      <Field name="randeSlider" component={renderSlider}/>
+    </form>
+)
+
 const App = () => (
   <div style={styles}>
     <Hello name="CodeSandbox" />
     <h2>Start sliding to see magic happen! {'\u2728'}</h2>
-    <Field name="randeSlider" component={renderSlider}/>
+    
   </div>
 );
 
